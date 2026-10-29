@@ -1,0 +1,71 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "Read Later",
+	"behavior": "create",
+	"noteContentFormat": "{{content}}",
+	"properties": [
+		{
+			"name": "created",
+			"value": "{{date}}",
+			"type": "date"
+		},
+		{
+			"name": "modified",
+			"value": "{{date}}",
+			"type": "date"
+		},
+		{
+			"name": "tipo",
+			"value": "recorte",
+			"type": "text"
+		},
+		{
+			"name": "tags",
+			"value": "tipo/read-later",
+			"type": "multitext"
+		},
+		{
+			"name": "url",
+			"value": "{{url}}",
+			"type": "text"
+		},
+		{
+			"name": "site",
+			"value": "{{site}}",
+			"type": "text"
+		},
+		{
+			"name": "descrição",
+			"value": "{{description}}",
+			"type": "text"
+		},
+		{
+			"name": "publicado em",
+			"value": "{{published}}",
+			"type": "date"
+		},
+		{
+			"name": "palavras",
+			"value": "{{words}}",
+			"type": "number"
+		},
+		{
+			"name": "cover",
+			"value": "{{image}}",
+			"type": "text"
+		},
+		{
+			"name": "favorito",
+			"value": "",
+			"type": "checkbox"
+		},
+		{
+			"name": "lido",
+			"value": "",
+			"type": "checkbox"
+		}
+	],
+	"triggers": [],
+	"noteNameFormat": "{{title}}",
+	"path": "CLIPS"
+}

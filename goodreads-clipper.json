@@ -1,0 +1,108 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "Goodreads",
+	"behavior": "create",
+	"noteContentFormat": "## Descrição\n\n> {{selector:.BookPageMetadataSection__description}}\n\n## Histórico\n\n\n\n## O que achei\n\n\n\n## Anotações\n\n",
+	"properties": [
+		{
+			"name": "created",
+			"value": "{{date}}",
+			"type": "date"
+		},
+		{
+			"name": "modified",
+			"value": "{{date}}",
+			"type": "date"
+		},
+		{
+			"name": "tipo",
+			"value": "livro",
+			"type": "text"
+		},
+		{
+			"name": "tags",
+			"value": "tipo/livro",
+			"type": "multitext"
+		},
+		{
+			"name": "título",
+			"value": "{{selector:.BookPageTitleSection__title h1}}",
+			"type": "text"
+		},
+		{
+			"name": "série",
+			"value": "{{selector:.BookPageTitleSection__title h3}}",
+			"type": "text"
+		},
+		{
+			"name": "autor",
+			"value": "{{selector:.ContributorLink__name|unique|join}}",
+			"type": "text"
+		},
+		{
+			"name": "lançamento",
+			"value": "{{selector:p[data-testid='publicationInfo']|split:\\\"First published \\\"|slice:1|date:\\\"YYYY\\\"}}",
+			"type": "text"
+		},
+		{
+			"name": "páginas",
+			"value": "{{selector:p[data-testid='pagesFormat']|split:\\\" \\\"|slice:0|first}}",
+			"type": "number"
+		},
+		{
+			"name": "crítica",
+			"value": "{{selector:.RatingStatistics__rating|first|round:2}}",
+			"type": "number"
+		},
+		{
+			"name": "cover",
+			"value": "{{selector:.BookCover__image img?src|first}}",
+			"type": "text"
+		},
+		{
+			"name": "isbn",
+			"value": "{{selector:.DescList|split:\\\"ISBN\\\"|slice:1,2|split:\\\" \\\"|first}}",
+			"type": "text"
+		},
+		{
+			"name": "preço",
+			"value": "",
+			"type": "number"
+		},
+		{
+			"name": "comprei em",
+			"value": "",
+			"type": "date"
+		},
+		{
+			"name": "terminei em",
+			"value": "",
+			"type": "multitext"
+		},
+		{
+			"name": "nota",
+			"value": "",
+			"type": "number"
+		},
+		{
+			"name": "interesse",
+			"value": "",
+			"type": "text"
+		},
+		{
+			"name": "TBR",
+			"value": "",
+			"type": "text"
+		},
+		{
+			"name": "status",
+			"value": "",
+			"type": "text"
+		}
+	],
+	"triggers": [
+		"https://www.goodreads.com/book/"
+	],
+	"noteNameFormat": "{{selector:.BookPageTitleSection__title h1}}",
+	"path": "BIBLIOTECA"
+}

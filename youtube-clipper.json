@@ -1,0 +1,58 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "YouTube",
+	"behavior": "create",
+	"noteContentFormat": "![{{schema:name}}]({{url}})",
+	"properties": [
+		{
+			"name": "created",
+			"value": "{{date}}",
+			"type": "date"
+		},
+		{
+			"name": "modified",
+			"value": "{{date}}",
+			"type": "date"
+		},
+		{
+			"name": "tipo",
+			"value": "video",
+			"type": "text"
+		},
+		{
+			"name": "tags",
+			"value": "tipo/video",
+			"type": "multitext"
+		},
+		{
+			"name": "título",
+			"value": "{{schema:name}}",
+			"type": "text"
+		},
+		{
+			"name": "autor",
+			"value": "{{schema:author|wikilink}}",
+			"type": "text"
+		},
+		{
+			"name": "publicado em",
+			"value": "{{schema:uploadDate|date:YYYY-MM-DD}}",
+			"type": "date"
+		},
+		{
+			"name": "url",
+			"value": "{{url}}",
+			"type": "text"
+		},
+		{
+			"name": "cover",
+			"value": "{{schema:thumbnailUrl|slice:0}}",
+			"type": "text"
+		}
+	],
+	"triggers": [
+		"https://www.youtube.com/watch?v="
+	],
+	"noteNameFormat": "{{schema:author}} – {{schema:name}}",
+	"path": "Inbox"
+}

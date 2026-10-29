@@ -1,0 +1,118 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "Dekudeals",
+	"behavior": "create",
+	"noteContentFormat": "",
+	"properties": [
+		{
+			"name": "created",
+			"value": "{{date}}",
+			"type": "date"
+		},
+		{
+			"name": "modified",
+			"value": "{{date}}",
+			"type": "date"
+		},
+		{
+			"name": "tipo",
+			"value": "jogo",
+			"type": "text"
+		},
+		{
+			"name": "tags",
+			"value": "tipo/jogo",
+			"type": "multitext"
+		},
+		{
+			"name": "desenvolvedora",
+			"value": "{{selector:a[href*=\\\"filter[developer]=\\\"]}}",
+			"type": "text"
+		},
+		{
+			"name": "gênero",
+			"value": "",
+			"type": "text"
+		},
+		{
+			"name": "plataforma",
+			"value": "",
+			"type": "multitext"
+		},
+		{
+			"name": "plataforma jogar",
+			"value": "",
+			"type": "text"
+		},
+		{
+			"name": "lançamento",
+			"value": "",
+			"type": "text"
+		},
+		{
+			"name": "duração",
+			"value": "{{selector:li | replace:\\\"/.*Main \\\\+ Extra.*?(\\\\d+).*/\\\":\\\"$1\\\"}}",
+			"type": "number"
+		},
+		{
+			"name": "duração completa",
+			"value": "{{selector:li | replace:\\\"/.*Completionist.*?(\\\\d+).*/\\\":\\\"$1\\\"}}",
+			"type": "number"
+		},
+		{
+			"name": "crítica",
+			"value": "{{selector: a.metacritic span:first-child}}",
+			"type": "text"
+		},
+		{
+			"name": "cover",
+			"value": "{{meta:property:og:image}}",
+			"type": "text"
+		},
+		{
+			"name": "url",
+			"value": "{{url}}",
+			"type": "text"
+		},
+		{
+			"name": "preço",
+			"value": "",
+			"type": "number"
+		},
+		{
+			"name": "comprei em",
+			"value": "",
+			"type": "date"
+		},
+		{
+			"name": "terminei em",
+			"value": "",
+			"type": "multitext"
+		},
+		{
+			"name": "nota",
+			"value": "",
+			"type": "text"
+		},
+		{
+			"name": "interesse",
+			"value": "",
+			"type": "text"
+		},
+		{
+			"name": "próximos",
+			"value": "",
+			"type": "checkbox"
+		},
+		{
+			"name": "status",
+			"value": "",
+			"type": "text"
+		}
+	],
+	"triggers": [
+		"https://www.dekudeals.com/items/"
+	],
+	"noteNameFormat": "{{title | replace:\":\":\" -\"}}",
+	"path": "BIBLIOTECA"
+}

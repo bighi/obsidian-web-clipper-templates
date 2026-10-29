@@ -1,0 +1,88 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "Panini",
+	"behavior": "create",
+	"noteContentFormat": "{% set prevSelector = selector:.volumes-container .volume:first-child .volume-info>a:first-child span |replace:\"Vol.\":\"\"|replace:\"/\\\\s+\\\\d+$/\":\"\"|replace:\":\":\" -\"|replace:\"  \":\" \" %}\n{% set nextSelector= selector:.volumes-container .volume:nth-child(2) .volume-info>a:first-child span |replace:\"Vol.\":\"\"|replace:\"/\\\\s+\\\\d+$/\":\"\"|replace:\":\":\" -\"|replace:\"  \":\" \" %}\n{% set issueNumber = title|replace:\"/.*[^\\\\d]0*(\\\\d+)$/\":\"$1\" %}\n{% set cleanTitle = title|replace:\"Vol.\":\"\"|replace:\"/\\\\s+0*\\\\d+$/\":\"\"|replace:\"  \":\" \" %}\n{% set prevNum = issueNumber|calc:\"-1\" %}\n{% set nextNum = issueNumber|calc:\"+1\" %}\n**Conteúdo Original**: {{selector:[data-th=\"Conteúdo original\"]}}\n\n> [!info] Notas relacionadas\n> [[§ Quadrinhos]] | [[Quadrinhos.base]]\n> Anterior: [[{% if prevSelector %}{{ prevSelector }}{% else %}{{ cleanTitle }} {{ prevNum }}{% endif %}]]\n> Próximo: [[{% if nextSelector %}{{ nextSelector }}{% else %}{{ cleanTitle }} {{ nextNum }}{% endif %}]]\n\n## Sinopse\n\n{{selector:.product.attribute.overview .value | blockquote}}\n\n## O que achei\n\n",
+	"properties": [
+		{
+			"name": "created",
+			"value": "{{date}}",
+			"type": "date"
+		},
+		{
+			"name": "modified",
+			"value": "{{date}}",
+			"type": "date"
+		},
+		{
+			"name": "tipo",
+			"value": "quadrinho",
+			"type": "text"
+		},
+		{
+			"name": "tags",
+			"value": "quadrinhos, tipo/quadrinho",
+			"type": "multitext"
+		},
+		{
+			"name": "editora",
+			"value": "",
+			"type": "text"
+		},
+		{
+			"name": "série",
+			"value": "[[{{ title|replace:\\\"Vol.\\\":\\\"\\\"|replace:\\\"/\\\\s+\\\\d+$/\\\":\\\"\\\"|replace:\\\":\\\":\\\" -\\\"|replace:\\\"  \\\":\\\" \\\"}}]]",
+			"type": "text"
+		},
+		{
+			"name": "categoria",
+			"value": "",
+			"type": "text"
+		},
+		{
+			"name": "lançamento",
+			"value": "{{ selector:td[data-th=\\\"Ano de publicação\\\"] }}-{{ selector:td[data-th=\\\"Mês\\\"]|replace:\\\"/Janeiro/i\\\":\\\"01\\\"|replace:\\\"/Fevereiro/i\\\":\\\"02\\\"|replace:\\\"/Março|Marco/i\\\":\\\"03\\\"|replace:\\\"/Abril/i\\\":\\\"04\\\"|replace:\\\"/Maio/i\\\":\\\"05\\\"|replace:\\\"/Junho/i\\\":\\\"06\\\"|replace:\\\"/Julho/i\\\":\\\"07\\\"|replace:\\\"/Agosto/i\\\":\\\"08\\\"|replace:\\\"/Setembro/i\\\":\\\"09\\\"|replace:\\\"/Outubro/i\\\":\\\"10\\\"|replace:\\\"/Novembro/i\\\":\\\"11\\\"|replace:\\\"/Dezembro/i\\\":\\\"12\\\"|trim }}",
+			"type": "text"
+		},
+		{
+			"name": "páginas",
+			"value": "{{selector:[data-th=\\\"Quantidade de páginas\\\"]}}",
+			"type": "number"
+		},
+		{
+			"name": "url",
+			"value": "{{url}}",
+			"type": "text"
+		},
+		{
+			"name": "preço",
+			"value": "{{selector:.price-box span.price|replace:\\\"R$\\\":\\\"\\\"|replace:\\\",\\\":\\\".\\\"}}",
+			"type": "number"
+		},
+		{
+			"name": "comprei em",
+			"value": "",
+			"type": "date"
+		},
+		{
+			"name": "terminei em",
+			"value": "",
+			"type": "multitext"
+		},
+		{
+			"name": "nota",
+			"value": "",
+			"type": "number"
+		},
+		{
+			"name": "planejado",
+			"value": "",
+			"type": "text"
+		}
+	],
+	"triggers": [
+		"https://panini.com.br/"
+	],
+	"noteNameFormat": "{{ title|replace:\"Vol.\":\"\"|replace:\"/(\\\\s+)0(\\\\d)$/\":\"$1$2\"|replace:\":\":\" -\"|replace:\"  \":\" \" }}",
+	"path": "BIBLIOTECA"
+}

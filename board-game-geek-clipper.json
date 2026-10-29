@@ -1,0 +1,113 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "Board Game Geek",
+	"behavior": "create",
+	"noteContentFormat": "{{selector:[ng-if=\"::geekitemctrl.geekitem.data.item.minplaytime > 0 || geekitemctrl.geekitem.data.item.maxplaytime > 0\"] span:last}}\n## Descrição\n\n{{selector:.game-description .game-description-body}}\n\n\n## Expansions\n\n![[Board games.base#Expansions]]\n\n## Logs\n\n![[Board game plays.base]]",
+	"properties": [
+		{
+			"name": "created",
+			"value": "{{date}}",
+			"type": "date"
+		},
+		{
+			"name": "modified",
+			"value": "{{date}}",
+			"type": "date"
+		},
+		{
+			"name": "tipo",
+			"value": "boardgame",
+			"type": "text"
+		},
+		{
+			"name": "tags",
+			"value": "boardgames",
+			"type": "multitext"
+		},
+		{
+			"name": "autor",
+			"value": "{{selector:.credits [itemprop=\\\"creator\\\"] [itemprop=\\\"name\\\"] | join:\\\"; \\\"}}",
+			"type": "text"
+		},
+		{
+			"name": "editora",
+			"value": "{{selector:.credits [itemprop=\\\"publisher\\\"] [itemprop=\\\"name\\\"]}}",
+			"type": "text"
+		},
+		{
+			"name": "lançamento",
+			"value": "{{ selector:.game-year | replace:(\\\"[^0-9]/g\\\":\\\"\\\") }}",
+			"type": "text"
+		},
+		{
+			"name": "duração",
+			"value": "{{selector:[ng-if=\\\"::geekitemctrl.geekitem.data.item.minplaytime > 0 || geekitemctrl.geekitem.data.item.maxplaytime > 0\\\"] [ng-if=\\\"max>0 && min != max\\\"]}}",
+			"type": "number"
+		},
+		{
+			"name": "peso",
+			"value": "{{selector:.gameplay-item .gameplay-item-primary [class*=\\\"gameplay-weight-\\\"]}}",
+			"type": "number"
+		},
+		{
+			"name": "jogadores min",
+			"value": "{{selector:.gameplay-item .gameplay-item-primary [ng-attr-content=\\\"\\{\\{geekitemctrl.geekitem.data.item.minplayers\\}\\}\\\"]?content}}",
+			"type": "number"
+		},
+		{
+			"name": "jogadores max",
+			"value": "{{selector:.gameplay-item .gameplay-item-primary [ng-attr-content=\\\"\\{\\{geekitemctrl.geekitem.data.item.maxplayers\\}\\}\\\"]?content}}",
+			"type": "number"
+		},
+		{
+			"name": "jogadores best",
+			"value": "",
+			"type": "multitext"
+		},
+		{
+			"name": "preço",
+			"value": "",
+			"type": "number"
+		},
+		{
+			"name": "comprei em",
+			"value": "",
+			"type": "date"
+		},
+		{
+			"name": "nota",
+			"value": "",
+			"type": "number"
+		},
+		{
+			"name": "interesse",
+			"value": "",
+			"type": "text"
+		},
+		{
+			"name": "cover",
+			"value": "{{image}}",
+			"type": "text"
+		},
+		{
+			"name": "url",
+			"value": "{{url}}",
+			"type": "text"
+		},
+		{
+			"name": "jogatinas",
+			"value": "",
+			"type": "number"
+		},
+		{
+			"name": "status",
+			"value": "",
+			"type": "text"
+		}
+	],
+	"triggers": [
+		"https://boardgamegeek.com/"
+	],
+	"noteNameFormat": "{{title}}",
+	"path": "BIBLIOTECA"
+}

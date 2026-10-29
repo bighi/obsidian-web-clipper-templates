@@ -1,0 +1,73 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "IMDB",
+	"behavior": "create",
+	"noteContentFormat": "Gênero: {{schema:genre|join}}\n\n## Elenco\n\n{{selector:[data-testid=\"title-pc-principal-credit\"]:nth-child(3) div a|unique|list}}\n\n## Descrição\n\n> {{schema:description}}\n\n## O que achei\n\n",
+	"properties": [
+		{
+			"name": "created",
+			"value": "{{date}}",
+			"type": "date"
+		},
+		{
+			"name": "modified",
+			"value": "{{date}}",
+			"type": "date"
+		},
+		{
+			"name": "tipo",
+			"value": "filme-série",
+			"type": "text"
+		},
+		{
+			"name": "tags",
+			"value": "tipo/filme-série",
+			"type": "multitext"
+		},
+		{
+			"name": "título original",
+			"value": "{{schema:name}}",
+			"type": "text"
+		},
+		{
+			"name": "diretor",
+			"value": "{{selector:[data-testid=\\\"title-pc-principal-credit\\\"]:first-child a|unique|join}}",
+			"type": "text"
+		},
+		{
+			"name": "lançamento",
+			"value": "{{schema:datePublished|split:\\\"-\\\"|slice:0,1}}",
+			"type": "text"
+		},
+		{
+			"name": "crítica",
+			"value": "{{schema:aggregateRating.ratingValue}}",
+			"type": "number"
+		},
+		{
+			"name": "cover",
+			"value": "{{schema:image}}",
+			"type": "text"
+		},
+		{
+			"name": "terminei em",
+			"value": "",
+			"type": "multitext"
+		},
+		{
+			"name": "nota",
+			"value": "",
+			"type": "number"
+		},
+		{
+			"name": "status",
+			"value": "",
+			"type": "text"
+		}
+	],
+	"triggers": [
+		"/^https:\\/\\/www\\.imdb\\.com\\/pt\\/title\\/tt\\d+(?!\\/reference\\/)(\\/[^\\s]*)?$/"
+	],
+	"noteNameFormat": "{{selector:h1 span}}",
+	"path": "BIBLIOTECA"
+}

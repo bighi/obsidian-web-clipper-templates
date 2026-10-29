@@ -1,0 +1,61 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "Web Clip",
+	"behavior": "create",
+	"noteContentFormat": "{{content}}",
+	"properties": [
+		{
+			"name": "created",
+			"value": "{{date}}",
+			"type": "date"
+		},
+		{
+			"name": "modified",
+			"value": "{{date}}",
+			"type": "date"
+		},
+		{
+			"name": "tipo",
+			"value": "recorte",
+			"type": "text"
+		},
+		{
+			"name": "tags",
+			"value": "tipo/recorte",
+			"type": "multitext"
+		},
+		{
+			"name": "url",
+			"value": "{{url}}",
+			"type": "text"
+		},
+		{
+			"name": "site",
+			"value": "",
+			"type": "text"
+		},
+		{
+			"name": "descrição",
+			"value": "{{description}}",
+			"type": "text"
+		},
+		{
+			"name": "favorito",
+			"value": "",
+			"type": "checkbox"
+		},
+		{
+			"name": "publicado em",
+			"value": "{{published}}",
+			"type": "date"
+		},
+		{
+			"name": "autor",
+			"value": "{{author}}",
+			"type": "text"
+		}
+	],
+	"triggers": [],
+	"noteNameFormat": "{{title}}",
+	"path": "CLIPS"
+}
